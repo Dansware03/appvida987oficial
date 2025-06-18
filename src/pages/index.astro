@@ -267,13 +267,11 @@ import imgCarga from '../assets/screenshots/p_carga.png';
     </div>
   </body>
 
-  <style>
-    * {
+  <style>    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     :root {
       --red-primary: #dc2626;
       --red-secondary: #ef4444;
@@ -298,7 +296,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
         0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
-
     body {
       font-family:
         "Inter",
@@ -309,13 +306,11 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       color: var(--gray-800);
       overflow-x: hidden;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
     }
-
     /* Download Bar Desktop */
     .download-bar {
       background: linear-gradient(
@@ -332,14 +327,12 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       z-index: 1000;
       box-shadow: var(--shadow);
     }
-
     .download-bar .container {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 1rem;
     }
-
     .btn-download-bar {
       background: rgba(255, 255, 255, 0.2);
       color: white;
@@ -353,12 +346,10 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
     }
-
     .btn-download-bar:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateY(-1px);
     }
-
     /* Header */
     .header {
       background: var(--white);
@@ -369,14 +360,12 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       right: 0;
       z-index: 999;
     }
-
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
     }
-
     .logo {
       display: flex;
       align-items: center;
@@ -385,27 +374,22 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       font-size: 1.25rem;
       color: var(--red-primary);
     }
-
     .logo-img {
       max-width: 140px;
     }
-
     .nav-links {
       display: flex;
       gap: 2rem;
     }
-
     .nav-links a {
       text-decoration: none;
       color: var(--gray-600);
       font-weight: 500;
       transition: color 0.3s ease;
     }
-
     .nav-links a:hover {
       color: var(--red-primary);
     }
-
     /* Hero Section */
     .hero {
       position: relative;
@@ -419,7 +403,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       );
       overflow: hidden;
     }
-
     .hero-bg {
       position: absolute;
       top: 0;
@@ -428,20 +411,17 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       bottom: 0;
       z-index: 1;
     }
-
     .hero-shapes {
       position: relative;
       width: 100%;
       height: 100%;
     }
-
     .shape {
       position: absolute;
       border-radius: 50%;
       opacity: 0.1;
       animation: float 6s ease-in-out infinite;
     }
-
     .shape-1 {
       width: 300px;
       height: 300px;
@@ -450,7 +430,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       right: 10%;
       animation-delay: 0s;
     }
-
     .shape-2 {
       width: 200px;
       height: 200px;
@@ -459,7 +438,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       left: 5%;
       animation-delay: 2s;
     }
-
     .shape-3 {
       width: 150px;
       height: 150px;
@@ -468,7 +446,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       left: 50%;
       animation-delay: 4s;
     }
-
     @keyframes float {
       0%,
       100% {
@@ -478,7 +455,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
         transform: translateY(-20px) rotate(180deg);
       }
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -488,7 +464,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       align-items: center;
       padding-top: 8rem;
     }
-
     .hero-title {
       font-size: 3.5rem;
       font-weight: 800;
@@ -496,7 +471,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       margin-bottom: 1.5rem;
       color: var(--gray-900);
     }
-
     .highlight {
       background: linear-gradient(
         135deg,
@@ -507,35 +481,29 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .hero-subtitle {
       font-size: 1.25rem;
       color: var(--gray-600);
       margin-bottom: 2rem;
       line-height: 1.7;
     }
-
     .hero-stats {
       display: flex;
       gap: 2rem;
     }
-
     .stat {
       text-align: center;
     }
-
     .stat-number {
       display: block;
       font-size: 2rem;
       font-weight: 700;
       color: var(--red-primary);
     }
-
     .stat-label {
       color: var(--gray-500);
       font-size: 0.875rem;
     }
-
     /* Phone Mockup */
     .hero-phone {
   max-width: 320px; /* Tamaño típico de teléfono */
@@ -545,121 +513,12 @@ import imgCarga from '../assets/screenshots/p_carga.png';
   border-radius: 2rem;
   overflow: hidden;
 }
-
 .phone-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
-    .app-interface {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .app-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background: var(--gray-50);
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    .signal-bars {
-      display: flex;
-      gap: 2px;
-    }
-
-    .signal-bars span {
-      width: 3px;
-      height: 8px;
-      background: var(--gray-400);
-      border-radius: 1px;
-    }
-
-    .signal-bars span:nth-child(1) {
-      height: 4px;
-    }
-    .signal-bars span:nth-child(2) {
-      height: 6px;
-    }
-    .signal-bars span:nth-child(3) {
-      height: 8px;
-    }
-    .signal-bars span:nth-child(4) {
-      height: 10px;
-      background: var(--red-primary);
-    }
-
-    .app-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem;
-    }
-
-    .station-info {
-      text-align: center;
-    }
-
-    .station-logo {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .station-info h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--red-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .equalizer {
-      display: flex;
-      gap: 4px;
-      align-items: end;
-      height: 60px;
-    }
-
-    .eq-bar {
-      width: 8px;
-      background: linear-gradient(
-        to top,
-        var(--red-primary),
-        var(--red-secondary)
-      );
-      border-radius: 4px;
-      animation: bounce 1s ease-in-out infinite;
-    }
-
-    .eq-bar:nth-child(1) {
-      height: 20px;
-      animation-delay: 0s;
-    }
-    .eq-bar:nth-child(2) {
-      height: 40px;
-      animation-delay: 0.1s;
-    }
-    .eq-bar:nth-child(3) {
-      height: 60px;
-      animation-delay: 0.2s;
-    }
-    .eq-bar:nth-child(4) {
-      height: 30px;
-      animation-delay: 0.3s;
-    }
-    .eq-bar:nth-child(5) {
-      height: 50px;
-      animation-delay: 0.4s;
-    }
-
     @keyframes bounce {
       0%,
       100% {
@@ -669,37 +528,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
         transform: scaleY(1);
       }
     }
-
-    .controls {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .control-btn {
-      width: 48px;
-      height: 48px;
-      border: none;
-      border-radius: 50%;
-      background: var(--gray-100);
-      color: var(--gray-600);
-      font-size: 1.25rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .control-btn.play {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(
-        135deg,
-        var(--red-primary),
-        var(--red-secondary)
-      );
-      color: white;
-      font-size: 1.5rem;
-    }
-
     /* Sections */
     .section-title {
       font-size: 2.5rem;
@@ -708,19 +536,16 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       margin-bottom: 3rem;
       color: var(--gray-900);
     }
-
     /* Features */
     .features {
       padding: 6rem 0;
       background: var(--white);
     }
-
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-
     .feature-card {
       background: var(--gray-50);
       padding: 2rem;
@@ -728,41 +553,34 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       text-align: center;
       transition: all 0.3s ease;
     }
-
     .feature-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
-
     .feature-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     .feature-card h3 {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 1rem;
       color: var(--gray-900);
     }
-
     .feature-card p {
       color: var(--gray-600);
       line-height: 1.6;
     }
-
     /* Screenshots */
     .screenshots {
       padding: 6rem 0;
       background: var(--gray-50);
     }
-
     .screenshots-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
-
     .screenshot-card {
       background: var(--white);
       border-radius: 1rem;
@@ -770,30 +588,10 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
     }
-
     .screenshot-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
-
-    .screenshot-placeholder {
-      height: 400px;
-      background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .placeholder-content {
-      text-align: center;
-    }
-
-    .placeholder-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      opacity: 0.5;
-    }
-
     /* Download */
     .download {
       padding: 6rem 0;
@@ -805,24 +603,20 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       color: white;
       text-align: center;
     }
-
     .download .section-title {
       color: white;
     }
-
     .download-subtitle {
       font-size: 1.25rem;
       margin-bottom: 3rem;
       opacity: 0.9;
     }
-
     .download-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
-
     .btn-download {
       display: inline-flex;
       align-items: center;
@@ -836,29 +630,24 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       min-width: 200px;
       justify-content: center;
     }
-
     .btn-download.primary {
       background: var(--white);
       color: var(--red-primary);
     }
-
     .btn-download.primary:hover {
       background: var(--gray-50);
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
-
     .btn-download.secondary {
       background: rgba(255, 255, 255, 0.2);
       color: white;
       backdrop-filter: blur(10px);
     }
-
     .btn-download.secondary:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
     }
-
     /* Footer */
     .footer {
       background: var(--gray-900);
@@ -866,14 +655,12 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       padding: 2rem 0;
       text-align: center;
     }
-
     .footer-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-
     .footer-logo {
       display: flex;
       align-items: center;
@@ -881,7 +668,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       font-weight: 700;
       font-size: 1.25rem;
     }
-
     /* Floating Download Button */
     .floating-download {
       position: fixed;
@@ -890,7 +676,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       transform: translateX(-50%);
       z-index: 1000;
     }
-
     .btn-floating {
       display: flex;
       align-items: center;
@@ -908,7 +693,6 @@ import imgCarga from '../assets/screenshots/p_carga.png';
       box-shadow: var(--shadow-xl);
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0% {
         box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
@@ -920,126 +704,99 @@ import imgCarga from '../assets/screenshots/p_carga.png';
         box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
       }
     }
-
     /* Responsive Design */
     .desktop-only {
       display: block;
     }
-
     .mobile-only {
       display: none;
     }
-
     @media (max-width: 768px) {
       .desktop-only {
         display: none;
       }
-
       .mobile-only {
         display: block;
       }
-
       .header {
         top: 0;
       }
-
       .nav-links {
         display: none;
       }
-
       .hero {
         padding-top: 4rem;
       }
-
       .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
       }
-
       .hero-title {
         font-size: 2.5rem;
       }
-
       .hero-subtitle {
         font-size: 1.1rem;
       }
-
       .hero-stats {
         justify-content: center;
       }
-
       .hero-phone {
         width: 240px;
         height: 480px;
       }
-
       .features-grid {
         grid-template-columns: 1fr;
       }
-
       .screenshots-grid {
         grid-template-columns: 1fr;
       }
-
       .download-buttons {
         flex-direction: column;
         align-items: center;
       }
-
       .btn-download {
         width: 100%;
         max-width: 300px;
       }
-
       .section-title {
         font-size: 2rem;
       }
-
       .container {
         padding: 0 1.5rem;
       }
-
       .floating-download {
         left: 1rem;
         right: 1rem;
         transform: none;
       }
-
       .btn-floating {
         width: 100%;
         justify-content: center;
       }
     }
-
     @media (max-width: 480px) {
       .hero-phone {
         width: 200px;
         height: 400px;
       }
-
       .hero-title {
         font-size: 2rem;
       }
-
       .hero-subtitle {
         font-size: 1rem;
       }
-
       .hero-stats {
         gap: 1rem;
       }
-
       .stat-number {
         font-size: 1.5rem;
       }
     }
-
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
-
     /* Loading animations */
     @keyframes fadeInUp {
       from {
@@ -1051,19 +808,15 @@ import imgCarga from '../assets/screenshots/p_carga.png';
         transform: translateY(0);
       }
     }
-
     .hero-text {
       animation: fadeInUp 1s ease-out;
     }
-
     .hero-phone {
       animation: fadeInUp 1s ease-out 0.3s both;
     }
-
     .feature-card {
       animation: fadeInUp 0.8s ease-out both;
     }
-
     .feature-card:nth-child(1) {
       animation-delay: 0.1s;
     }
@@ -1082,11 +835,9 @@ import imgCarga from '../assets/screenshots/p_carga.png';
     .feature-card:nth-child(6) {
       animation-delay: 0.6s;
     }
-
     .screenshot-card {
       animation: fadeInUp 0.8s ease-out both;
     }
-
     .screenshot-card:nth-child(1) {
       animation-delay: 0.2s;
     }

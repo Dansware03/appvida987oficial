@@ -37,7 +37,7 @@ Alternativamente, puedes descargar el APK desde la sección de Releases de este 
 - Dispositivo con Android 7.0 o superior.
 - Conexión a internet para streaming.
 
-## Historial de versiones
+## Historial de versiones - App Android
 
 - **v1.3.1** (15 Jun 2025): Mejoras de compatibilidad con Android 15 y correcciones de estabilidad.
 - **v1.3.0**: Implementación de sistema de actualización dual (Play Store / GitHub Releases) y mejoras en la pantalla de actualización.
@@ -46,6 +46,10 @@ Alternativamente, puedes descargar el APK desde la sección de Releases de este 
 - (Versiones previas…)  
 
 > Este changelog es un resumen de los cambios percibidos. Para detalles técnicos, contacte al equipo de desarrollo.
+
+## Historial de versiones - Web
+
+- **v1.0.1** (18 Jun 2025): Eliminación de CSS no utilizado en la página de inicio (`index.astro`) para optimizar la carga.
 
 ## Próximas mejoras
 
