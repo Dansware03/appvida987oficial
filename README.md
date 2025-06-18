@@ -68,6 +68,6 @@ Si en el futuro se libera código, se especificará una licencia adecuada (p.ej.
 
 Para consultas o soporte:
 - Correo: soporte@vida987.com
-- Twitter / redes: @tuCuenta
+- Instagram / redes: @emisoravida98.7
 - Sitio web: https://vida987.com
 
