@@ -1,11 +1,1140 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>VIDA 98.7 FM - Tu Estación de Radio Favorita</title>
+    <meta
+      name="description"
+      content="Descarga la app oficial de VIDA 98.7 FM. Escucha tu estación favorita con ecualizador, modo dormir y más funciones increíbles."
+    />
+    <meta
+      property="og:title"
+      content="VIDA 98.7 FM - Tu Estación de Radio Favorita"
+    />
+    <meta
+      property="og:description"
+      content="Descarga la app oficial de VIDA 98.7 FM con ecualizador y modo dormir"
+    />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:url" content="https://vida987.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Barra de descarga desktop -->
+    <div class="download-bar desktop-only">
+      <div class="container">
+        <span>🎵 ¡Descarga la app oficial de VIDA 98.7 FM!</span>
+        <a href="#download" class="btn-download-bar">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+            ></path>
+            <path
+              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+            ></path>
+          </svg>
+          Descargar Ahora
+        </a>
+      </div>
+    </div>
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav container">
+        <div class="logo">
+          <div class="logo-icon">📻</div>
+          <span>VIDA 98.7 FM</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features">Características</a>
+          <a href="#screenshots">Capturas</a>
+          <a href="#download">Descargar</a>
+        </div>
+      </nav>
+    </header>
 
-<Layout>
-	<Welcome />
-</Layout>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Tu música favorita
+            <span class="highlight">siempre contigo</span>
+          </h1>
+          <p class="hero-subtitle">
+            Disfruta de VIDA 98.7 FM con sonido de alta calidad, ecualizador
+            integrado y funciones exclusivas que harán de tu experiencia algo
+            único.
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Descargas</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">4.8★</span>
+              <span class="stat-label">Calificación</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">En vivo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-phone">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="app-interface">
+                <div class="app-header">
+                  <div class="signal-bars">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="time">10:47</div>
+                  <div class="battery">100%</div>
+                </div>
+                <div class="app-content">
+                  <div class="station-info">
+                    <div class="station-logo">📻</div>
+                    <h3>VIDA 98.7 FM</h3>
+                    <p>En vivo ahora</p>
+                  </div>
+                  <div class="equalizer">
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                  </div>
+                  <div class="controls">
+                    <button class="control-btn">⏮</button>
+                    <button class="control-btn play">▶</button>
+                    <button class="control-btn">⏭</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Características increíbles</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎵</div>
+            <h3>Transmisión en Vivo</h3>
+            <p>
+              Escucha tu estación favorita en tiempo real con calidad de audio
+              superior.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎛️</div>
+            <h3>Ecualizador Integrado</h3>
+            <p>
+              Personaliza tu experiencia de audio con nuestro ecualizador
+              profesional.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">😴</div>
+            <h3>Modo Dormir</h3>
+            <p>
+              Programa el apagado automático para quedarte dormido con tu música
+              favorita.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Interfaz Moderna</h3>
+            <p>
+              Diseño limpio e intuitivo que hace que usar la app sea un placer.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📤</div>
+            <h3>Comparte en Redes</h3>
+            <p>
+              Comparte lo que estás escuchando con tus amigos en redes sociales.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3>Actualizaciones</h3>
+            <p>
+              Sistema flexible de actualizaciones desde Play Store o GitHub.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+      <div class="container">
+        <h2 class="section-title">Ve la app en acción</h2>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">📱</div>
+                <p>Pantalla Principal</p>
+              </div>
+            </div>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">🎛️</div>
+                <p>Ecualizador</p>
+              </div>
+            </div>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">⚙️</div>
+                <p>Configuración</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+      <div class="container">
+        <div class="download-content">
+          <h2 class="section-title">Descarga la app ahora</h2>
+          <p class="download-subtitle">
+            Disponible para dispositivos Android. ¡Comienza a disfrutar de VIDA
+            98.7 FM hoy mismo!
+          </p>
+          <div class="download-buttons">
+            <a
+              href="https://github.com/tuusuario/vida-radio/releases/latest/download/vida-fm.apk"
+              class="btn-download primary"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Livello 1"
+                viewBox="0 0 128 128"
+              >
+                <path
+                  d="M61.88 93.12a3 3 0 0 0 .44.36l.24.13a1.74 1.74 0 0 0 .59.24l.25.07a3 3 0 0 0 1.16 0l.26-.08.3-.09a3 3 0 0 0 .3-.16l.21-.12a3 3 0 0 0 .46-.38L93 66.21A3 3 0 1 0 88.79 62L67 83.76V3a3 3 0 0 0-6 0v80.76L39.21 62A3 3 0 0 0 35 66.21Z"
+                ></path>
+                <path
+                  d="M125 88a3 3 0 0 0-3 3v22a9 9 0 0 1-9 9H15a9 9 0 0 1-9-9V91a3 3 0 0 0-6 0v22a15 15 0 0 0 15 15h98a15 15 0 0 0 15-15V91a3 3 0 0 0-3-3Z"
+                ></path>
+              </svg>
+              Descargar APK
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.tuapp.vida"
+              class="btn-download secondary"
+            >
+            <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                xml:space="preserve"
+                style="enable-background:new 0 0 96 96"
+                viewBox="0 0 96 96">
+				<path d="M18.6 1.2c-7.4-3.3-13.2.5-14 8.4l-.1 76.8h.1c.8 8 6.5 11.7 13.9 8.4l-.5.2 2.4-1.2.6-.3 1-.6 45.7-26.5.3-.2 16.6-9.7-.1-.1c6.8-5 6.1-12.3-.2-16.9l.1-.1L68.3 30l-.6-.5-.1.1L22.1 3.1 21 2.4m-.5-.2-.1-.1h-.1m44.9 30.7-9.7 12-27.3-33.6 37 21.6zM18.4 90.4l-.2.1c-.3.1-.5.3-.7.4-5.5 2.7-8.7.2-8.9-6V10.5c.4-5.9 3.8-8.2 9.3-5.2l.4.2L52.9 48 18.4 90.4zm9.8-5.7 27.3-33.5 9.8 12-37.1 21.5zm54.7-31.9c-.3.2-.6.5-.9.7-.3.2-.5.4-.8.5l-1.9 1.1-10.5 6.1L58 48l10.7-13.1L79.1 41l1.7 1h.1c.4.2.8.5 1.1.7 4 2.9 4.8 6.8.9 10.1z"></path>
+			</svg>
+            Google Play
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="logo-icon">📻</div>
+            <span>VIDA 98.7 FM</span>
+          </div>
+          <p>&copy; 2025 VIDA 98.7 FM. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botón flotante móvil -->
+    <div class="floating-download mobile-only">
+      <a href="#download" class="btn-floating">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+          ></path>
+          <path
+            d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 1 0-.708.708l3 3z"
+          ></path>
+        </svg>
+        Descargar App
+      </a>
+    </div>
+  </body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red-primary: #dc2626;
+      --red-secondary: #ef4444;
+      --red-light: #fef2f2;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    body {
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      line-height: 1.6;
+      color: var(--gray-800);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Download Bar Desktop */
+    .download-bar {
+      background: linear-gradient(
+        135deg,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      color: white;
+      padding: 0.75rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .download-bar .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-download-bar {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-download-bar:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: fixed;
+      top: 3.5rem;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--red-primary);
+    }
+
+    .logo-icon {
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        135deg,
+        var(--gray-50) 0%,
+        var(--red-light) 100%
+      );
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    .hero-shapes {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--red-primary);
+      top: 10%;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      background: var(--red-secondary);
+      bottom: 20%;
+      left: 5%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 150px;
+      height: 150px;
+      background: var(--red-primary);
+      top: 50%;
+      left: 50%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding-top: 8rem;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--gray-900);
+    }
+
+    .highlight {
+      background: linear-gradient(
+        135deg,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--red-primary);
+    }
+
+    .stat-label {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+    }
+
+    /* Phone Mockup */
+    .phone-mockup {
+      position: relative;
+      width: 280px;
+      height: 560px;
+      background: var(--gray-900);
+      border-radius: 2rem;
+      padding: 1rem;
+      box-shadow: var(--shadow-xl);
+      margin: 0 auto;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--white);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .app-interface {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: var(--gray-50);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .signal-bars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .signal-bars span {
+      width: 3px;
+      height: 8px;
+      background: var(--gray-400);
+      border-radius: 1px;
+    }
+
+    .signal-bars span:nth-child(1) {
+      height: 4px;
+    }
+    .signal-bars span:nth-child(2) {
+      height: 6px;
+    }
+    .signal-bars span:nth-child(3) {
+      height: 8px;
+    }
+    .signal-bars span:nth-child(4) {
+      height: 10px;
+      background: var(--red-primary);
+    }
+
+    .app-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .station-info {
+      text-align: center;
+    }
+
+    .station-logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .station-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--red-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .equalizer {
+      display: flex;
+      gap: 4px;
+      align-items: end;
+      height: 60px;
+    }
+
+    .eq-bar {
+      width: 8px;
+      background: linear-gradient(
+        to top,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      border-radius: 4px;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    .eq-bar:nth-child(1) {
+      height: 20px;
+      animation-delay: 0s;
+    }
+    .eq-bar:nth-child(2) {
+      height: 40px;
+      animation-delay: 0.1s;
+    }
+    .eq-bar:nth-child(3) {
+      height: 60px;
+      animation-delay: 0.2s;
+    }
+    .eq-bar:nth-child(4) {
+      height: 30px;
+      animation-delay: 0.3s;
+    }
+    .eq-bar:nth-child(5) {
+      height: 50px;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: scaleY(0.5);
+      }
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .control-btn {
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .control-btn.play {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(
+        135deg,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--gray-900);
+    }
+
+    /* Features */
+    .features {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--gray-50);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--gray-900);
+    }
+
+    .feature-card p {
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* Screenshots */
+    .screenshots {
+      padding: 6rem 0;
+      background: var(--gray-50);
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .screenshot-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .screenshot-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .screenshot-placeholder {
+      height: 400px;
+      background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder-content {
+      text-align: center;
+    }
+
+    .placeholder-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    /* Download */
+    .download {
+      padding: 6rem 0;
+      background: linear-gradient(
+        135deg,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      color: white;
+      text-align: center;
+    }
+
+    .download .section-title {
+      color: white;
+    }
+
+    .download-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      min-width: 200px;
+      justify-content: center;
+    }
+
+    .btn-download.primary {
+      background: var(--white);
+      color: var(--red-primary);
+    }
+
+    .btn-download.primary:hover {
+      background: var(--gray-50);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-download.secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-download.secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    /* Floating Download Button */
+    .floating-download {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+
+    .btn-floating {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(
+        135deg,
+        var(--red-primary),
+        var(--red-secondary)
+      );
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow-xl);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+      }
+    }
+
+    /* Responsive Design */
+    .desktop-only {
+      display: block;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: block;
+      }
+
+      .header {
+        top: 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .phone-mockup {
+        width: 240px;
+        height: 480px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-download {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .floating-download {
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+      }
+
+      .btn-floating {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .phone-mockup {
+        width: 200px;
+        height: 400px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-stats {
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Loading animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-text {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-phone {
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .feature-card {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .feature-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .feature-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .feature-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .feature-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    .feature-card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+    .feature-card:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .screenshot-card {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .screenshot-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .screenshot-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .screenshot-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  </style>
+</html>
