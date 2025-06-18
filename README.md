@@ -29,9 +29,8 @@ Alternativamente, puedes descargar el APK desde la sección de Releases de este 
 
 1. Abre la app.
 2. Toca el botón de reproducir para iniciar la transmisión.
-3. Desde el menú inferior o lateral, accede al ecualizador para ajustar frecuencias.
-4. En Ajustes, programa el temporizador de apagado según tu preferencia.
-5. Usa el botón de compartir para publicar en tus redes sociales.
+3. En Ajustes, programa el temporizador de apagado según tu preferencia.
+4. Usa el botón de compartir para publicar en tus redes sociales.
 
 ## Requisitos
 
