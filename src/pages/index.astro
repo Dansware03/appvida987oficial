@@ -1,3 +1,12 @@
+---
+import logo from '../assets/logo/logo.png';
+import logoBlanco from '../assets/logo/logo_blanco.webp';
+import mainImg from '../assets/screenshots/main.png';
+import imgMetadata01 from '../assets/screenshots/p_metadata_01.png';
+import imgMetadata02 from '../assets/screenshots/p_metadata_02.png';
+import imgMenu from '../assets/screenshots/p_menu.png';
+import imgCarga from '../assets/screenshots/p_carga.png';
+---
 <!doctype html>
 <html lang="es">
   <head>
@@ -5,14 +14,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>VIDA 98.7 FM - Tu Estación de Radio Favorita</title>
+    <title>Fundacion Emisora Vida FM - La Radio de tu Vida</title>
     <meta
       name="description"
       content="Descarga la app oficial de VIDA 98.7 FM. Escucha tu estación favorita con ecualizador, modo dormir y más funciones increíbles."
     />
     <meta
       property="og:title"
-      content="VIDA 98.7 FM - Tu Estación de Radio Favorita"
+      content="VIDA 98.7 FM - La Radio de tu Vida"
     />
     <meta
       property="og:description"
@@ -50,8 +59,7 @@
     <header class="header">
       <nav class="nav container">
         <div class="logo">
-          <div class="logo-icon">📻</div>
-          <span>VIDA 98.7 FM</span>
+		  <img class="logo-img" src={logo.src} alt="Logo" fetchpriority="high" />
         </div>
         <div class="nav-links">
           <a href="#features">Características</a>
@@ -87,10 +95,10 @@
               <span class="stat-number">1M+</span>
               <span class="stat-label">Descargas</span>
             </div>
-            <div class="stat">
+            <!-- <div class="stat">
               <span class="stat-number">4.8★</span>
               <span class="stat-label">Calificación</span>
-            </div>
+            </div> -->
             <div class="stat">
               <span class="stat-number">24/7</span>
               <span class="stat-label">En vivo</span>
@@ -99,39 +107,8 @@
         </div>
 
         <div class="hero-phone">
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <div class="app-interface">
-                <div class="app-header">
-                  <div class="signal-bars">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                  <div class="time">10:47</div>
-                  <div class="battery">100%</div>
-                </div>
-                <div class="app-content">
-                  <div class="station-info">
-                    <div class="station-logo">📻</div>
-                    <h3>VIDA 98.7 FM</h3>
-                    <p>En vivo ahora</p>
-                  </div>
-                  <div class="equalizer">
-                    <div class="eq-bar"></div>
-                    <div class="eq-bar"></div>
-                    <div class="eq-bar"></div>
-                    <div class="eq-bar"></div>
-                    <div class="eq-bar"></div>
-                  </div>
-                  <div class="controls">
-                    <button class="control-btn">⏮</button>
-                    <button class="control-btn play">▶</button>
-                    <button class="control-btn">⏭</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <img class="phone-image" src={mainImg.src} alt="Captura de la app VIDA 98.7 FM" fetchpriority="high" />
+</div>
       </div>
     </section>
 
@@ -195,28 +172,16 @@
         <h2 class="section-title">Ve la app en acción</h2>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <div class="screenshot-placeholder">
-              <div class="placeholder-content">
-                <div class="placeholder-icon">📱</div>
-                <p>Pantalla Principal</p>
-              </div>
-            </div>
+            <img class="phone-image" src={imgMetadata01.src} alt="Pantalla Principal con metadata 01 de VIDA 98.7 FM">
           </div>
-          <div class="screenshot-card">
-            <div class="screenshot-placeholder">
-              <div class="placeholder-content">
-                <div class="placeholder-icon">🎛️</div>
-                <p>Ecualizador</p>
-              </div>
-            </div>
+		  <div class="screenshot-card">
+            <img class="phone-image" src={imgMenu.src} alt="Pantalla con menu de opciones de VIDA 98.7 FM">
           </div>
-          <div class="screenshot-card">
-            <div class="screenshot-placeholder">
-              <div class="placeholder-content">
-                <div class="placeholder-icon">⚙️</div>
-                <p>Configuración</p>
-              </div>
-            </div>
+		  <div class="screenshot-card">
+            <img class="phone-image" src={imgCarga.src} alt="Pantalla de carga de VIDA 98.7 FM">
+          </div>
+		  <div class="screenshot-card">
+            <img class="phone-image" src={imgMetadata02.src} alt="Pantalla Principal con metadata 02 de VIDA 98.7 FM">
           </div>
         </div>
       </div>
@@ -279,8 +244,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <div class="logo-icon">📻</div>
-            <span>VIDA 98.7 FM</span>
+            <img class="logo-img" src={logoBlanco.src} alt="Logo" fetchpriority="high" />
           </div>
           <p>&copy; 2025 VIDA 98.7 FM. Todos los derechos reservados.</p>
         </div>
@@ -422,8 +386,8 @@
       color: var(--red-primary);
     }
 
-    .logo-icon {
-      font-size: 1.5rem;
+    .logo-img {
+      max-width: 140px;
     }
 
     .nav-links {
@@ -573,25 +537,21 @@
     }
 
     /* Phone Mockup */
-    .phone-mockup {
-      position: relative;
-      width: 280px;
-      height: 560px;
-      background: var(--gray-900);
-      border-radius: 2rem;
-      padding: 1rem;
-      box-shadow: var(--shadow-xl);
-      margin: 0 auto;
-    }
+    .hero-phone {
+  max-width: 320px; /* Tamaño típico de teléfono */
+  aspect-ratio: 9 / 16; /* Mantiene proporción similar a 1800/2400 */
+  margin: 0 auto;
+  box-shadow: var(--shadow-xl);
+  border-radius: 2rem;
+  overflow: hidden;
+}
 
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: var(--white);
-      border-radius: 1.5rem;
-      overflow: hidden;
-      position: relative;
-    }
+.phone-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
     .app-interface {
       height: 100%;
@@ -1009,7 +969,7 @@
         justify-content: center;
       }
 
-      .phone-mockup {
+      .hero-phone {
         width: 240px;
         height: 480px;
       }
@@ -1053,7 +1013,7 @@
     }
 
     @media (max-width: 480px) {
-      .phone-mockup {
+      .hero-phone {
         width: 200px;
         height: 400px;
       }
