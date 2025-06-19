@@ -451,12 +451,22 @@
       }
       .header {
         top: 0;
+        position: relative; /* Change from fixed to relative on mobile */
+      }
+      .nav { /* Add styles for .nav on mobile */
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
       }
       .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
       }
       .hero {
-        padding-top: 4rem;
+        padding-top: 2rem; /* Reduce padding as header is now relative */
       }
       .hero-content {
         grid-template-columns: 1fr;
