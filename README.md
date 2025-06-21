@@ -50,6 +50,7 @@ Alternativamente, puedes descargar el APK desde la sección de Releases de este 
 
 ## Historial de versiones - Web
 
+- **v1.0.4** (27 Jul 2024): Se modificó el contador de descargas para mostrar el total acumulado de todas las versiones de la app en lugar de solo la última.
 - **v1.0.3** (26 Jul 2024): Revisión y ajustes de responsive en `index.astro`. Se mejoró la visualización de la navegación principal en dispositivos móviles.
 - **v1.0.2** (19 Jun 2025): Implementación de contador dinámico de descargas para el APK desde GitHub Releases.
 - **v1.0.1** (18 Jun 2025): Eliminación de CSS no utilizado en la página de inicio (`index.astro`) para optimizar la carga.
