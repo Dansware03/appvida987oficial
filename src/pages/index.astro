@@ -278,21 +278,25 @@ import '../styles/global.css';
         }
 
         try {
-          const response = await fetch('https://api.github.com/repos/Dansware03/appvida987oficial/releases/latest');
+          const response = await fetch('https://api.github.com/repos/Dansware03/appvida987oficial/releases');
           if (!response.ok) {
             throw new Error(`GitHub API request failed: ${response.status}`);
           }
-          const data = await response.json();
-
+          const releases = await response.json();
+          let totalDownloads = 0;
           const assetName = 'Vida-98.7-FM-App.apk';
-          const targetAsset = data.assets.find(asset => asset.name === assetName);
 
-          if (targetAsset) {
-            // Format the number with commas for readability if it's large
-            const downloadCount = targetAsset.download_count;
-            countElement.textContent = downloadCount.toLocaleString();
+          for (const release of releases) {
+            const targetAsset = release.assets.find(asset => asset.name === assetName);
+            if (targetAsset) {
+              totalDownloads += targetAsset.download_count;
+            }
+          }
+
+          if (totalDownloads > 0) {
+            countElement.textContent = totalDownloads.toLocaleString();
           } else {
-            console.warn(`Asset ${assetName} not found in the latest release.`);
+            console.warn(`Asset ${assetName} not found in any release or no downloads recorded.`);
             countElement.textContent = defaultCountText; // Or 'N/A' or some other placeholder
           }
         } catch (error) {
