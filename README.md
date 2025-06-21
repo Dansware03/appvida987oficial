@@ -39,6 +39,7 @@ Alternativamente, puedes descargar el APK desde la sección de Releases de este 
 
 ## Historial de versiones - App Android
 
+- **v1.4.1** (2024-06-21): Endurecimiento de la producción y preparación para Play Store.
 - **v1.4.0** (20 Jun 2025): Integración de API Remota para Metadatos.
 - **v1.3.1** (15 Jun 2025): Mejoras de compatibilidad con Android 15 y correcciones de estabilidad.
 - **v1.3.0**: Implementación de sistema de actualización dual (Play Store / GitHub Releases) y mejoras en la pantalla de actualización.
