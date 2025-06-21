@@ -93,7 +93,7 @@ import '../styles/global.css';
           </p>
           <div class="hero-stats">
             <div class="stat">
-              <span class="stat-number" id="download-count-number">1M+</span>
+              <span class="stat-number" id="download-count-number">0</span>
               <span class="stat-label">Descargas</span>
             </div>
             <!-- <div class="stat">
@@ -270,7 +270,7 @@ import '../styles/global.css';
     <script>
       (async () => {
         const countElement = document.getElementById('download-count-number'); // This ID will be added in the next step
-        const defaultCountText = '1M+'; // Fallback text
+        const defaultCountText = '0'; // Fallback text
 
         if (!countElement) {
           console.error('Download count element not found');

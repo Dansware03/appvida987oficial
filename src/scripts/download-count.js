@@ -1,6 +1,6 @@
       (async () => {
         const countElement = document.getElementById('download-count-number'); // This ID will be added in the next step
-        const defaultCountText = '1M+'; // Fallback text
+        const defaultCountText = '0'; // Fallback text
 
         if (!countElement) {
           console.error('Download count element not found');
