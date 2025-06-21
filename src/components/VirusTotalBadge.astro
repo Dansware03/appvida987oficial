@@ -1,0 +1,276 @@
+---
+// src/components/VirusTotalBadge.astro
+const apiKey = '1d2753ed7d89fc4b1a57e401e3f5b0f69c50a1a59843c010abe606deec889594';
+const fileHash = '105dc8f8ef689928627751b031fd9b0b2cf64a75b848a4cc52942fd7ccbe9a16';
+const cacheKey = 'virusTotalScanResult';
+const cacheDuration = 60 * 60 * 1000; // 1 hora en milisegundos
+
+let scanResult = {
+  text: 'Verificando seguridad...',
+  isSafe: null, // null: desconocido, true: seguro, false: no seguro
+  lastChecked: null,
+};
+
+if (typeof localStorage !== 'undefined') {
+  const cachedResult = localStorage.getItem(cacheKey);
+  if (cachedResult) {
+    const parsedResult = JSON.parse(cachedResult);
+    if (Date.now() - parsedResult.timestamp < cacheDuration) {
+      scanResult.text = parsedResult.isSafe ? 'App Segura (Cache)' : 'App Potencialmente No Segura (Cache)';
+      scanResult.isSafe = parsedResult.isSafe;
+      scanResult.lastChecked = new Date(parsedResult.timestamp).toLocaleString();
+    }
+  }
+}
+
+async function fetchVirusTotalReport() {
+  if (typeof localStorage !== 'undefined') {
+    const cachedResult = localStorage.getItem(cacheKey);
+    if (cachedResult) {
+      const parsedResult = JSON.parse(cachedResult);
+      if (Date.now() - parsedResult.timestamp < cacheDuration) {
+        // Ya tenemos un resultado válido en caché, no hacemos nada más
+        return;
+      }
+    }
+  }
+
+  // Si estamos en el servidor o no hay caché/caché expirada, intentamos obtener el reporte
+  // pero solo si no estamos en el cliente para evitar múltiples llamadas innecesarias
+  // y para respetar los límites de la API.
+  // La lógica del cliente se manejará con un script.
+
+  if (Astro.locals.isClientSideRender) return; // Evitar llamadas desde el servidor si ya se renderizó en cliente
+
+  try {
+    // Lógica para limitar las llamadas a la API (simplificada aquí)
+    // En un escenario real, necesitarías un mecanismo más robusto para manejar el rate limiting
+    // entre diferentes usuarios/sesiones si el componente se renderiza en el servidor para cada petición.
+    // Dado que Astro renderiza en el servidor durante la compilación o SSR, esta llamada
+    // se haría una vez por build o por request (dependiendo de la configuración de Astro).
+    // Para este caso, nos enfocaremos en el caché del lado del cliente.
+
+    const response = await fetch(`https://www.virustotal.com/api/v3/files/${fileHash}`, {
+      headers: {
+        'x-apikey': apiKey,
+      },
+    });
+
+    if (!response.ok) {
+      if (response.status === 429) { // Too Many Requests
+        console.warn('VirusTotal API rate limit exceeded.');
+        scanResult.text = 'Límite de API excedido. Intente más tarde.';
+        scanResult.isSafe = null;
+      } else {
+        console.error(`Error fetching VirusTotal report: ${response.status}`);
+        scanResult.text = 'Error al verificar';
+        scanResult.isSafe = null;
+      }
+      return;
+    }
+
+    const data = await response.json();
+    const attributes = data.data.attributes;
+    const lastAnalysisStats = attributes.last_analysis_stats;
+
+    const isSafe = lastAnalysisStats.malicious === 0 && lastAnalysisStats.suspicious === 0;
+    scanResult.text = isSafe ? 'App Segura' : 'App Potencialmente No Segura';
+    scanResult.isSafe = isSafe;
+    scanResult.lastChecked = new Date(attributes.last_analysis_date * 1000).toLocaleString();
+
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(cacheKey, JSON.stringify({
+        isSafe: isSafe,
+        timestamp: Date.now(),
+        reportDate: scanResult.lastChecked
+      }));
+    }
+  } catch (error) {
+    console.error('Error fetching VirusTotal report:', error);
+    scanResult.text = 'Error al verificar';
+    scanResult.isSafe = null;
+  }
+}
+
+// Para el primer renderizado del lado del servidor (o build time),
+// intentamos obtener el dato si no hay nada en caché (lo cual será siempre en build).
+// En el cliente, el script se encargará de actualizar.
+if (scanResult.isSafe === null && !Astro.locals.isClientSideRender) {
+  // No podemos usar await directamente en el top-level del script setup en Astro.
+  // La lógica de fetch se moverá al script del cliente.
+  // Aquí solo establecemos un estado inicial.
+  scanResult.text = 'Verificando seguridad...';
+}
+
+---
+
+<div id="virustotal-badge" class:list={['badge', { 'badge-safe': scanResult.isSafe === true, 'badge-unsafe': scanResult.isSafe === false, 'badge-unknown': scanResult.isSafe === null }]}>
+  <span id="virustotal-text">{scanResult.text}</span>
+  {scanResult.lastChecked && <small id="virustotal-checked" class="last-checked"> (Última revisión API: {scanResult.lastChecked})</small>}
+  <small id="virustotal-cache-status" class="cache-status"></small>
+</div>
+
+<script define:vars={{ apiKey, fileHash, cacheKey, cacheDuration }}>
+  const badgeElement = document.getElementById('virustotal-badge');
+  const textElement = document.getElementById('virustotal-text');
+  const checkedElement = document.getElementById('virustotal-checked');
+  const cacheStatusElement = document.getElementById('virustotal-cache-status');
+
+  async function updateBadge() {
+    let isSafeValue = null;
+    let statusText = 'Verificando seguridad...';
+    let lastCheckedText = '';
+    let cacheStatusMsg = '';
+
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      const { isSafe, timestamp, reportDate } = JSON.parse(cachedData);
+      if (Date.now() - timestamp < cacheDuration) {
+        isSafeValue = isSafe;
+        statusText = isSafe ? 'App Segura' : 'App Potencialmente No Segura';
+        lastCheckedText = ` (Última revisión API: ${reportDate})`;
+        cacheStatusMsg = ` (Desde caché, expira en ${Math.round((cacheDuration - (Date.now() - timestamp)) / 60000)} min)`;
+
+        applyStyles(isSafeValue);
+        textElement.textContent = statusText;
+        if(checkedElement) checkedElement.textContent = lastCheckedText; else if(lastCheckedText) appendSmall(lastCheckedText, 'virustotal-checked', 'last-checked');
+        if(cacheStatusElement) cacheStatusElement.textContent = cacheStatusMsg; else appendSmall(cacheStatusMsg, 'virustotal-cache-status', 'cache-status');
+        return;
+      } else {
+        cacheStatusMsg = ' (Cache expirada)';
+      }
+    }
+
+    // Si no hay caché válida, intentar obtener de la API
+    try {
+      // Prevenir llamadas muy frecuentes aunque el caché haya expirado recientemente
+      const lastApiCallTimestamp = parseFloat(localStorage.getItem('virusTotalLastApiCall') || '0');
+      const minIntervalBetweenCalls = 60 * 1000; // 1 minuto para no exceder 4/min
+
+      if (Date.now() - lastApiCallTimestamp < minIntervalBetweenCalls) {
+        statusText = 'Esperando para nueva revisión API...';
+        cacheStatusMsg += ' (Respetando límite de API)';
+        applyStyles(null); // Estado desconocido mientras esperamos
+        textElement.textContent = statusText;
+        if(cacheStatusElement) cacheStatusElement.textContent = cacheStatusMsg; else appendSmall(cacheStatusMsg, 'virustotal-cache-status', 'cache-status');
+        // Reintentar después de un tiempo prudencial si es necesario
+        setTimeout(updateBadge, minIntervalBetweenCalls - (Date.now() - lastApiCallTimestamp) + 5000); // +5s de margen
+        return;
+      }
+
+      localStorage.setItem('virusTotalLastApiCall', Date.now().toString());
+
+      const response = await fetch(`https://www.virustotal.com/api/v3/files/${fileHash}`, {
+        headers: { 'x-apikey': apiKey },
+      });
+
+      if (!response.ok) {
+        if (response.status === 429) {
+          statusText = 'Límite de API excedido.';
+          console.warn('VirusTotal API rate limit exceeded on client.');
+        } else {
+          statusText = `Error API: ${response.status}`;
+          console.error(`Error fetching VirusTotal report on client: ${response.status}`);
+        }
+        isSafeValue = null;
+        // Guardar intento fallido para no reintentar inmediatamente
+         localStorage.setItem(cacheKey, JSON.stringify({
+          isSafe: null,
+          timestamp: Date.now() - cacheDuration + (5 * 60 * 1000), // Marcar como expirado pero con un pequeño delay para reintentar
+          reportDate: 'N/A'
+        }));
+
+      } else {
+        const data = await response.json();
+        const attributes = data.data.attributes;
+        const lastAnalysisStats = attributes.last_analysis_stats;
+        isSafeValue = lastAnalysisStats.malicious === 0 && lastAnalysisStats.suspicious === 0;
+        statusText = isSafeValue ? 'App Segura' : 'App Potencialmente No Segura';
+        const apiReportDate = new Date(attributes.last_analysis_date * 1000).toLocaleString();
+        lastCheckedText = ` (Última revisión API: ${apiReportDate})`;
+
+        localStorage.setItem(cacheKey, JSON.stringify({
+          isSafe: isSafeValue,
+          timestamp: Date.now(),
+          reportDate: apiReportDate
+        }));
+        cacheStatusMsg = ' (Actualizado desde API)';
+      }
+    } catch (error) {
+      console.error('Error fetching VirusTotal report on client:', error);
+      statusText = 'Error de conexión';
+      isSafeValue = null;
+    }
+
+    applyStyles(isSafeValue);
+    textElement.textContent = statusText;
+    if(checkedElement) checkedElement.textContent = lastCheckedText; else if(lastCheckedText) appendSmall(lastCheckedText, 'virustotal-checked', 'last-checked');
+    if(cacheStatusElement) cacheStatusElement.textContent = cacheStatusMsg; else appendSmall(cacheStatusMsg, 'virustotal-cache-status', 'cache-status');
+  }
+
+  function applyStyles(isSafe) {
+    badgeElement.classList.remove('badge-safe', 'badge-unsafe', 'badge-unknown');
+    if (isSafe === true) {
+      badgeElement.classList.add('badge-safe');
+    } else if (isSafe === false) {
+      badgeElement.classList.add('badge-unsafe');
+    } else {
+      badgeElement.classList.add('badge-unknown');
+    }
+  }
+
+  function appendSmall(text, id, className) {
+    let smallElem = document.getElementById(id);
+    if (!smallElem) {
+        smallElem = document.createElement('small');
+        smallElem.id = id;
+        if (className) smallElem.className = className;
+        badgeElement.appendChild(smallElem);
+    }
+    smallElem.textContent = text;
+  }
+
+  // Para asegurar que el script se ejecute después de que el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateBadge);
+  } else {
+    updateBadge();
+  }
+
+  // Opcional: Actualizar periódicamente si la pestaña está activa
+  // document.addEventListener('visibilitychange', () => {
+  //   if (document.visibilityState === 'visible') {
+  //     updateBadge();
+  //   }
+  // });
+</script>
+
+<style>
+  .badge {
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: white;
+  }
+  .badge-safe {
+    background-color: #28a745; /* Verde */
+  }
+  .badge-unsafe {
+    background-color: #dc3545; /* Rojo */
+  }
+  .badge-unknown {
+    background-color: #ffc107; /* Amarillo/Naranja */
+    color: #212529;
+  }
+  .last-checked, .cache-status {
+    font-size: 0.7rem;
+    font-weight: normal;
+    display: block;
+    margin-top: 2px;
+    opacity: 0.8;
+  }
+</style>
